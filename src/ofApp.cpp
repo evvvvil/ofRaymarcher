@@ -40,13 +40,11 @@ void ofApp::update() {
 void ofApp::draw() {
 	fbo1.begin();
 		raymarchShader.begin();
-			ofTranslate(centerXY);
-			cam.begin();
-				matView = cam.getModelViewMatrix();
-				matProj = cam.getProjectionMatrix();
-				matProj = matProj.getInverse();
-				camPos = matView.getTranslation();
-			cam.end();
+			ofTranslate(centerXY);			
+			matView = cam.getModelViewMatrix();
+			matProj = cam.getProjectionMatrix();
+			matProj = matProj.getInverse();
+			camPos = matView.getTranslation();			
 			raymarchShader.setUniform1f("time", timer);
 			raymarchShader.setUniformMatrix4f("matView", matView);
 			raymarchShader.setUniformMatrix4f("matProj", matProj);
