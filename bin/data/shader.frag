@@ -16,7 +16,7 @@ vec2 s,e=vec2(.00035,-.00035);float t,tt;vec3 np;
 mat2 r2(float r){return mat2(cos(r),sin(r),-sin(r),cos(r));}
 vec2 mp( vec3 p )
 {
-    vec2 t=vec2(bo(p,vec3(10,10,10)),4);
+    vec2 t=vec2(bo(p,vec3(12,12,12)),4);
     return t;
 }
 vec2 tr( vec3 ro, vec3 rd )
@@ -55,6 +55,6 @@ void main(void)
 		sp=pow(max(dot(reflect(-ld,no),-rd),0),spo);
 		co=mix(sp+al*ao*(dif+sss),fo,min(fr,.5));
 	  }
-	co=mix(co,fo,1-exp(-.000002*t*t*t));
+	co=mix(co,fo,1-exp(-.0000001*t*t*t));
 	outputColor = vec4(pow(co,vec3(.45)),1);
 }

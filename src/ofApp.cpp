@@ -5,6 +5,7 @@ void ofApp::setup() {
 	ofSetVerticalSync(true);
 	gui.setup("GUI Broski");
 	//gui.add(posOffset.set("Position Offset", ofVec3f(0, 0, 0), ofVec3f(-50, -50, -50), ofVec3f(50, 50, 50)));
+	gui.add(fov.set("FOV broh", 70,0,100));
 	bHide = false;
 	timer = 0.0;
 	raymarchShader.load("shader");
@@ -22,21 +23,22 @@ void ofApp::setup() {
 	cam.setAutoDistance(false);
 	cam.setPosition(0, 0, 40);
 	cam.setNearClip(camNearFarPlane.x);
-	cam.setFarClip(camNearFarPlane.y);
+	cam.setFarClip(camNearFarPlane.y);	
 	raymarchShader.begin();
 		raymarchShader.setUniform2f("resolution", renderSize);
-		raymarchShader.setUniform2f("nearFarPlane", camNearFarPlane);
+		raymarchShader.setUniform2f("nearFarPlane", camNearFarPlane*2);
 	raymarchShader.end();
 }
+
 //--------------------------------------------------------------
 void ofApp::update() {
-	timer = ofGetElapsedTimef();	
+	timer = ofGetElapsedTimef();
+	cam.setFov((float)fov);
 	cam.begin();
 		matView = cam.getModelViewMatrix();
 		matProj = cam.getProjectionMatrix();
 		matProj = matProj.getInverse();
-		//camPos = cam.getPosition();
-		matView.decompose(camPos, rota, scal, soo);
+		camPos = matView.getTranslation();
 	cam.end();
 }
 
@@ -48,7 +50,7 @@ void ofApp::draw() {
 			raymarchShader.setUniform1f("time", timer);
 			raymarchShader.setUniformMatrix4f("matView", matView);
 			raymarchShader.setUniformMatrix4f("matProj", matProj);
-			raymarchShader.setUniform3f("camPos", camPos);
+			raymarchShader.setUniform3f("camPos", camPos*2);
 			//raymarchShader.setUniform3f("posOffset", (ofVec3f)posOffset);
 			plane.draw();
 		raymarchShader.end();

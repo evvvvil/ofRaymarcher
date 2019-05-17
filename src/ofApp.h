@@ -24,6 +24,7 @@ public:
 
 	//ofParameter<bool> InvertView;
 	//ofParameter<ofVec3f> posOffset;	
+	ofParameter<float> fov;
 	bool bHide;
 	ofxPanel gui;
 	ofShader raymarchShader;
@@ -36,6 +37,5 @@ public:
 	ofMatrix4x4 matView;
 	ofMatrix4x4 matProj;
 	ofVec2f camNearFarPlane;
-	ofVec3f camPos, scal;
-	ofQuaternion rota, soo;
+	ofVec3f camPos;
 };
