@@ -1,2 +1,2 @@
 # ofRaymarcher
-Raymarcher made in c++, openFramewokrs and GLSL
+Raymarcher made in c++, openFrameworks and GLSL
