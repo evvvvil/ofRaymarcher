@@ -1,9 +1,4 @@
 #version 430
-//TODO: maybe use global unforms from OF like:
-//uniform mat4 modelViewMatrix; 
-//instead of matview and matproj so we dont have to pass them?
-//check vertex shader for code, but that might entitle the shader.begin being inside cam.begin?
-//this probably is a shit idea but maybe would be more optimized, although matview matrix would have to be inverted in shader rather than cpu
 uniform mat4 matView;
 uniform mat4 matProj;
 uniform vec2 resolution;
