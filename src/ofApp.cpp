@@ -34,12 +34,6 @@ void ofApp::setup() {
 void ofApp::update() {
 	timer = ofGetElapsedTimef();
 	cam.setFov((float)fov);
-	cam.begin();
-		matView = cam.getModelViewMatrix();
-		matProj = cam.getProjectionMatrix();
-		matProj = matProj.getInverse();
-		camPos = matView.getTranslation();
-	cam.end();
 }
 
 //--------------------------------------------------------------
@@ -47,6 +41,12 @@ void ofApp::draw() {
 	fbo1.begin();
 		raymarchShader.begin();
 			ofTranslate(centerXY);
+			cam.begin();
+				matView = cam.getModelViewMatrix();
+				matProj = cam.getProjectionMatrix();
+				matProj = matProj.getInverse();
+				camPos = matView.getTranslation();
+			cam.end();
 			raymarchShader.setUniform1f("time", timer);
 			raymarchShader.setUniformMatrix4f("matView", matView);
 			raymarchShader.setUniformMatrix4f("matProj", matProj);
@@ -57,9 +57,9 @@ void ofApp::draw() {
 	fbo1.end();
 	fbo1.draw(0, 0);
 	cam.begin();
-	ofEnableDepthTest();
-	ofDrawBox(0, 0, 0, 10);
-	ofDisableDepthTest();
+		ofEnableDepthTest();
+		ofDrawBox(0, 0, 0, 10);
+		ofDisableDepthTest();
 	cam.end();
 	if (!bHide) {
 		gui.draw();
