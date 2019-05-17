@@ -8,13 +8,8 @@ void ofApp::setup() {
 	gui.add(fov.set("FOV broh", 70,0,100));
 	bHide = false;
 	timer = 0.0;
-	raymarchShader.load("shader");
-	if (raymarchShader.isLoaded()) {
-		cout << "SHADER LOADED" << endl;
-	}
-	else {
-		cout << "BOOOOO! SHADER DIDN'T LOAD" << endl;
-	}
+	raymarchShader.load("raymarchShader");
+	//cout << "SHADER LOADED" << endl;	
 	renderSize = ofVec2f(ofGetWidth(), ofGetHeight());
 	centerXY = renderSize / 2;
 	plane.set(renderSize.x, renderSize.y);
