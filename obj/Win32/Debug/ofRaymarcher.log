@@ -1,6 +1,4 @@
-﻿  main.cpp
-  ofApp.cpp
-  LINK : bin\ofRaymarcher_debug.exe not found or not built by the last incremental link; performing full link
+﻿  ofApp.cpp
      Creating library bin\ofRaymarcher_debug.lib and object bin\ofRaymarcher_debug.exp
   ofRaymarcher.vcxproj -> C:\Users\evvvvil\Desktop\of_v0.10.1_vs2017_release\apps\myApps\ofRaymarcher\bin\ofRaymarcher_debug.exe
   

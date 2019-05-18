@@ -15,7 +15,7 @@ void ofApp::setup() {
 	centerXY = renderSize / 2;
 	plane.set(renderSize.x, renderSize.y);
 	ofFbo::Settings settings;
-	settings.width = renderSize.x;
+	settings.width = renderSize.x/2;
 	settings.height = renderSize.y;
 	settings.internalformat = GL_RGB; // or GL_RGBA?
 	settings.useDepth = true;
@@ -54,10 +54,10 @@ void ofApp::update() {
 		raymarchShader.end();
 	raymarchFbo.end();
 	geometryFbo.begin();	
-		ofClear(0, 0, 0, 255);
+		ofClear(0, 0, 0, 0);
 		cam.begin();
 			ofEnableDepthTest();
-			ofTranslate(0, 0, 5);
+			ofTranslate(0, 0, 0);
 			box.draw();	
 			ofDisableDepthTest();
 		cam.end();
