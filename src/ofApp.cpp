@@ -45,25 +45,25 @@ void ofApp::draw() {
 	ofDrawBox(0, 0, 0, 10);
 	ofDisableDepthTest();
 	cam.end();
-	fbo1.begin();
-		raymarchShader.begin();
-			ofTranslate(centerXY);			
-			matView = cam.getModelViewMatrix();
-			matProj = cam.getProjectionMatrix();
-			matProj = matProj.getInverse();
-			camPos = matView.getTranslation();			
-			raymarchShader.setUniform1f("time", timer);
-			raymarchShader.setUniformMatrix4f("matView", matView);
-			raymarchShader.setUniformMatrix4f("matProj", matProj);
-			raymarchShader.setUniform3f("camPos", camPos*2);
-			//raymarchShader.setUniform3f("posOffset", (ofVec3f)posOffset);
-			plane.draw();
-		raymarchShader.end();
-	fbo1.end();	
-	
-	
 	deferred.end();
-	//fbo1.getTexture(0).setAlphaMask(fbo1.getDepthTexture());
+	fbo1.begin();
+	raymarchShader.begin();
+	ofTranslate(centerXY);
+	matView = cam.getModelViewMatrix();
+	matProj = cam.getProjectionMatrix();
+	matProj = matProj.getInverse();
+	camPos = matView.getTranslation();
+	raymarchShader.setUniform1f("time", timer);
+	raymarchShader.setUniformMatrix4f("matView", matView);
+	raymarchShader.setUniformMatrix4f("matProj", matProj);
+	raymarchShader.setUniform3f("camPos", camPos * 2);
+	//raymarchShader.setUniform3f("posOffset", (ofVec3f)posOffset);
+	plane.draw();
+	raymarchShader.end();
+	fbo1.end();
+	//ofTexture broh;
+	//broh.draw
+	//fbo1.getTexture(0).setAlphaMask(fbo1.getTexture(2));
 	fbo1.draw(0, 0);
 	//ofTexture broh = deferred.getGBuffer().getTexture(2);
 	
