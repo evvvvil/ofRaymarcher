@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxGui.h"
+#include "ofxDeferredShading.h"
 
 class ofApp : public ofBaseApp {
 
@@ -22,8 +23,11 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	//ofParameter<bool> InvertView;
-	//ofParameter<ofVec3f> posOffset;	
+	ofxDeferredProcessing deferred;
+	ofPtr<ofxDeferred::SsaoPass> ssao;
+	//ofPtr<ofxDeferred::PointLightPass> points;
+	//ofPtr<ofxDeferred::ShadowLightPass> shadow;
+	//ofPtr<ofxDeferred::BloomPass> bloom;
 	ofParameter<float> fov;
 	bool bHide;
 	ofxPanel gui;

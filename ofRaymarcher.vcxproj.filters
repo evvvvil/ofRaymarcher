@@ -7,6 +7,39 @@
 		<ClCompile Include="src\main.cpp">
 			<Filter>src</Filter>
 		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\BloomPass.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\DofPass.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\EdgePass.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\GBuffer.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\PointLightPass.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\Processor.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\ShadowLightPass.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\SsaoPass.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\UnderwaterPass.cpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClCompile>
 		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp">
 			<Filter>addons\ofxGui\src</Filter>
 		</ClCompile>
@@ -45,6 +78,12 @@
 		<Filter Include="addons">
 			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
 		</Filter>
+		<Filter Include="addons\ofxDeferredShading">
+			<UniqueIdentifier>{04797335-B748-CA90-B984-5B22}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxDeferredShading\src">
+			<UniqueIdentifier>{2CCF24B7-A7D0-B339-7BFE-281E}</UniqueIdentifier>
+		</Filter>
 		<Filter Include="addons\ofxGui">
 			<UniqueIdentifier>{4F2A59AF-5F4E-704B-D067-EC13}</UniqueIdentifier>
 		</Filter>
@@ -55,6 +94,45 @@
 	<ItemGroup>
 		<ClInclude Include="src\ofApp.h">
 			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\BgPass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\BloomPass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\Blur.h">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\DofPass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\EdgePass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\GBuffer.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\ofxDeferredShading.h">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\PointLightPass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\Processor.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\ShadowLightPass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\SsaoPass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\UnderwaterPass.hpp">
+			<Filter>addons\ofxDeferredShading\src</Filter>
 		</ClInclude>
 		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h">
 			<Filter>addons\ofxGui\src</Filter>

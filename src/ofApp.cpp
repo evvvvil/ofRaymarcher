@@ -18,7 +18,13 @@ void ofApp::setup() {
 	cam.setAutoDistance(false);
 	cam.setPosition(0, 0, 40);
 	cam.setNearClip(camNearFarPlane.x);
-	cam.setFarClip(camNearFarPlane.y);	
+	cam.setFarClip(camNearFarPlane.y);
+	deferred.init(ofGetWidth(), ofGetHeight());
+	ssao = deferred.createPass<ofxDeferred::SsaoPass>();
+	//points = deferred.createPass<ofxDeferred::PointLightPass>();
+	//shadow = deferred.createPass<ofxDeferred::ShadowLightPass>();
+	//bloom = deferred.createPass<ofxDeferred::BloomPass>();
+
 	raymarchShader.begin();
 		raymarchShader.setUniform2f("resolution", renderSize);
 		raymarchShader.setUniform2f("nearFarPlane", camNearFarPlane*2);
@@ -33,6 +39,12 @@ void ofApp::update() {
 
 //--------------------------------------------------------------
 void ofApp::draw() {
+	deferred.begin(cam, true);
+	cam.begin();
+	ofEnableDepthTest();
+	ofDrawBox(0, 0, 0, 10);
+	ofDisableDepthTest();
+	cam.end();
 	fbo1.begin();
 		raymarchShader.begin();
 			ofTranslate(centerXY);			
@@ -47,13 +59,14 @@ void ofApp::draw() {
 			//raymarchShader.setUniform3f("posOffset", (ofVec3f)posOffset);
 			plane.draw();
 		raymarchShader.end();
-	fbo1.end();
+	fbo1.end();	
+	
+	
+	deferred.end();
+	//fbo1.getTexture(0).setAlphaMask(fbo1.getDepthTexture());
 	fbo1.draw(0, 0);
-	cam.begin();
-		ofEnableDepthTest();
-		ofDrawBox(0, 0, 0, 10);
-		ofDisableDepthTest();
-	cam.end();
+	//ofTexture broh = deferred.getGBuffer().getTexture(2);
+	
 	if (!bHide) {
 		gui.draw();
 	}

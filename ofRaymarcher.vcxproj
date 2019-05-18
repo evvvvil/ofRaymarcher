@@ -100,7 +100,7 @@
 			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
 			<WarningLevel>Level3</WarningLevel>
-			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxDeferredShading\src;..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
 			<CompileAs>CompileAsCpp</CompileAs>
 			<ObjectFileName>$(IntDir)</ObjectFileName>
 		</ClCompile>
@@ -120,7 +120,7 @@
 			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
 			<WarningLevel>Level3</WarningLevel>
-			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxDeferredShading\src;..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
 			<CompileAs>CompileAsCpp</CompileAs>
 			<MultiProcessorCompilation>true</MultiProcessorCompilation>
 			<ObjectFileName>$(IntDir)</ObjectFileName>
@@ -140,7 +140,7 @@
 			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
 			<WarningLevel>Level3</WarningLevel>
-			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxDeferredShading\src;..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
 			<CompileAs>CompileAsCpp</CompileAs>
 			<MultiProcessorCompilation>true</MultiProcessorCompilation>
 			<ObjectFileName>$(IntDir)</ObjectFileName>
@@ -163,7 +163,7 @@
 			<PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
 			<RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
 			<WarningLevel>Level3</WarningLevel>
-			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
+			<AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src;..\..\..\addons\ofxDeferredShading\src;..\..\..\addons\ofxGui\src</AdditionalIncludeDirectories>
 			<CompileAs>CompileAsCpp</CompileAs>
 			<ObjectFileName>$(IntDir)</ObjectFileName>
 		</ClCompile>
@@ -182,6 +182,15 @@
 	<ItemGroup>
 		<ClCompile Include="src\main.cpp" />
 		<ClCompile Include="src\ofApp.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\BloomPass.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\DofPass.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\EdgePass.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\GBuffer.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\PointLightPass.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\Processor.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\ShadowLightPass.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\SsaoPass.cpp" />
+		<ClCompile Include="..\..\..\addons\ofxDeferredShading\src\UnderwaterPass.cpp" />
 		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxBaseGui.cpp" />
 		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxButton.cpp" />
 		<ClCompile Include="..\..\..\addons\ofxGui\src\ofxColorPicker.cpp" />
@@ -195,6 +204,18 @@
 	</ItemGroup>
 	<ItemGroup>
 		<ClInclude Include="src\ofApp.h" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\BgPass.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\BloomPass.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\Blur.h" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\DofPass.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\EdgePass.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\GBuffer.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\ofxDeferredShading.h" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\PointLightPass.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\Processor.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\ShadowLightPass.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\SsaoPass.hpp" />
+		<ClInclude Include="..\..\..\addons\ofxDeferredShading\src\UnderwaterPass.hpp" />
 		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxBaseGui.h" />
 		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxButton.h" />
 		<ClInclude Include="..\..\..\addons\ofxGui\src\ofxColorPicker.h" />

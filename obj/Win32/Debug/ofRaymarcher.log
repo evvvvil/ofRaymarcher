@@ -1,6 +1,5 @@
-﻿  main.cpp
-  ofApp.cpp
-     Creating library bin\ofRaymarcher_debug.lib and object bin\ofRaymarcher_debug.exp
+﻿  ofApp.cpp
+c:\users\evvvvil\desktop\of_v0.10.1_vs2017_release\addons\ofxdeferredshading\src\blur.h(102): warning C4018: '<': signed/unsigned mismatch
   ofRaymarcher.vcxproj -> C:\Users\evvvvil\Desktop\of_v0.10.1_vs2017_release\apps\myApps\ofRaymarcher\bin\ofRaymarcher_debug.exe
   
   	                   2	C:\Users\evvvvil\Desktop\of_v0.10.1_vs2017_release\libs\fmodex\lib\vs\Win32\
