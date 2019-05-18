@@ -6,6 +6,7 @@ void ofApp::setup() {
 	gui.setup("GUI Broski");
 	//gui.add(posOffset.set("Position Offset", ofVec3f(0, 0, 0), ofVec3f(-50, -50, -50), ofVec3f(50, 50, 50)));
 	gui.add(fov.set("FOV broh", 70,0,100));
+	gui.add(showText.set("show layer 1", true));
 	bHide = false;
 	timer = 0.0;
 	raymarchShader.load("raymarchShader");
@@ -66,8 +67,7 @@ void ofApp::update() {
 //--------------------------------------------------------------
 void ofApp::draw() {
 	raymarchFbo.draw(0, 0);
-	geometryFbo.draw(0, 0);
-
+	if((bool)showText) geometryFbo.draw(0, 0);
 	if (!bHide) {
 		gui.draw();
 	}

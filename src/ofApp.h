@@ -25,6 +25,7 @@ public:
 	//ofParameter<bool> InvertView;
 	//ofParameter<ofVec3f> posOffset;	
 	ofParameter<float> fov;
+	ofParameter<bool> showText;
 	bool bHide;
 	ofxPanel gui;
 	ofShader raymarchShader;
