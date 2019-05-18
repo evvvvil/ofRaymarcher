@@ -49,7 +49,7 @@ void main(void)
 		sss=smoothstep(0,1,mp(po+ld*.4).x/.4),
 		sp=pow(max(dot(reflect(-ld,no),-rd),0),spo);
 		co=mix(sp+al*ao*(dif+sss),fo,min(fr,.5));
-	  }
+	}
 	co=mix(co,fo,1-exp(-.0000001*t*t*t));
 	outputColor = vec4(pow(co,vec3(.45)),1);
 }
