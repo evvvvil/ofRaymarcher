@@ -13,7 +13,14 @@ void ofApp::setup() {
 	renderSize = ofVec2f(ofGetWidth(), ofGetHeight());
 	centerXY = renderSize / 2;
 	plane.set(renderSize.x, renderSize.y);
-	fbo1.allocate(renderSize.x, renderSize.y);
+	ofFbo::Settings settings;
+	settings.width = renderSize.x;
+	settings.height = renderSize.y;
+	settings.internalformat = GL_RGB; // or GL_RGBA?
+	settings.useDepth = true;
+	settings.depthStencilAsTexture = true;
+	raymarchFbo.allocate(settings);
+	geometryFbo.allocate(renderSize.x, renderSize.y);
 	camNearFarPlane = ofVec2f(0.01f, 100.f);
 	cam.setAutoDistance(false);
 	cam.setPosition(0, 0, 40);
@@ -23,37 +30,44 @@ void ofApp::setup() {
 		raymarchShader.setUniform2f("resolution", renderSize);
 		raymarchShader.setUniform2f("nearFarPlane", camNearFarPlane*2);
 	raymarchShader.end();
+	box.set(10);
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
 	timer = ofGetElapsedTimef();
 	cam.setFov((float)fov);
+	matView = cam.getModelViewMatrix();
+	matProj = cam.getProjectionMatrix();
+	matProj = matProj.getInverse();
+	raymarchFbo.begin();
+		raymarchShader.begin();
+			ofTranslate(centerXY);			
+			camPos = matView.getTranslation();
+			raymarchShader.setUniform1f("time", timer);
+			raymarchShader.setUniformMatrix4f("matView", matView);
+			raymarchShader.setUniformMatrix4f("matProj", matProj);
+			raymarchShader.setUniform3f("camPos", camPos * 2);
+			//raymarchShader.setUniform3f("posOffset", (ofVec3f)posOffset);
+			plane.draw();
+		raymarchShader.end();
+	raymarchFbo.end();
+	geometryFbo.begin();	
+		ofClear(0, 0, 0, 255);
+		cam.begin();
+			ofEnableDepthTest();
+			ofTranslate(0, 0, 5);
+			box.draw();	
+			ofDisableDepthTest();
+		cam.end();
+	geometryFbo.end();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw() {
-	fbo1.begin();
-		raymarchShader.begin();
-			ofTranslate(centerXY);			
-			matView = cam.getModelViewMatrix();
-			matProj = cam.getProjectionMatrix();
-			matProj = matProj.getInverse();
-			camPos = matView.getTranslation();			
-			raymarchShader.setUniform1f("time", timer);
-			raymarchShader.setUniformMatrix4f("matView", matView);
-			raymarchShader.setUniformMatrix4f("matProj", matProj);
-			raymarchShader.setUniform3f("camPos", camPos*2);
-			//raymarchShader.setUniform3f("posOffset", (ofVec3f)posOffset);
-			plane.draw();
-		raymarchShader.end();
-	fbo1.end();
-	fbo1.draw(0, 0);
-	cam.begin();
-		ofEnableDepthTest();
-		ofDrawBox(0, 0, 0, 10);
-		ofDisableDepthTest();
-	cam.end();
+	raymarchFbo.draw(0, 0);
+	geometryFbo.draw(0, 0);
+
 	if (!bHide) {
 		gui.draw();
 	}

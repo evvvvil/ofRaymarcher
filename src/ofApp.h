@@ -28,7 +28,9 @@ public:
 	bool bHide;
 	ofxPanel gui;
 	ofShader raymarchShader;
-	ofFbo fbo1;
+	ofFbo raymarchFbo;
+	ofFbo geometryFbo;
+	ofBoxPrimitive box;
 	ofPlanePrimitive plane;
 	ofVec2f renderSize;
 	ofVec2f centerXY;
